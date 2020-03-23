@@ -1,10 +1,10 @@
-const path = require('path')
 const MyMoneroCoreBridgeClass = require('./MyMoneroCoreBridgeClass')
 const wasmJS = require('./MyMoneroCoreCpp_WASM.js')
+const path = require('path')
 
-module.exports = async function() {
+module.exports = async function loadMymoneroWasm() {
   const Module_template = {
-    locateFile: (filename, scriptDirectory) => path.join(scriptDirectory, filename)
+    locateFile: () => path.resolve(__dirname, 'MyMoneroCoreCpp_WASM.wasm')
   }
   const thisModule = await wasmJS(Module_template).ready
   return new MyMoneroCoreBridgeClass(thisModule)
