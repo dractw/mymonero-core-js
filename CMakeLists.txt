@@ -118,7 +118,8 @@ set (
     #
     # TODO? does EXPORT_NAME need to be the same for both targets? (or should it be set per-target with …_WASM, …_ASMJS?)
     "-Wall -std=c++11 \
---bind -s MODULARIZE=1 \
+--bind \
+-s MODULARIZE=1 \
 -s 'EXPORT_NAME=\"MyMoneroCoreCpp\"' \
 --llvm-lto 1 \
 -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
@@ -133,7 +134,7 @@ set (
 -s NODEJS_CATCH_EXIT=0 \
 -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"UTF8ToString\"]' \
 "
-    # • Disabling exception catching does not introduce silent failures 
+    # • Disabling exception catching does not introduce silent failures
     # • Probably don't need PRECISE_F32 but wouldn't want to not use it
     #
     #
@@ -164,6 +165,11 @@ set(
 -s ALLOW_MEMORY_GROWTH=1 \
 --post-js ${CMAKE_CURRENT_LIST_DIR}/src/module-post.js \
 "
+    # • Disabling exception catching does not introduce silent failures 
+    # • Probably don't need PRECISE_F32 but wouldn't want to not use it
+    #
+    #
+    # -s SAFE_HEAP=1 \
     # -g \
 )
 #
