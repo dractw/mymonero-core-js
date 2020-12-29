@@ -134,7 +134,7 @@ set (
 -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"UTF8ToString\"]' \
 \
 -s WASM=1 \
--Oz \
+-Os \
 -s ALLOW_MEMORY_GROWTH=1 \
 --post-js ${CMAKE_CURRENT_LIST_DIR}/src/module-post.js \
 \
