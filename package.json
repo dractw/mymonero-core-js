@@ -41,6 +41,15 @@
     "webpack-cli": "3.1.0",
     "webpack-merge": "4.1.4"
   },
+  "files": [
+    "index.js",
+    "monero_utils/MyMoneroBridge_utils.js",
+    "monero_utils/MyMoneroCoreBridgeEssentialsClass.js",
+    "monero_utils/MyMoneroCoreCpp_WASM.js",
+    "monero_utils/MyMoneroCoreCpp_WASM.wasm",
+    "monero_utils/MyMoneroCoreCpp_ASMJS.js",
+    "monero_utils/MyMoneroCoreCpp_ASMJS.asm.js"
+  ],
   "jest": {
     "testEnvironment": "node",
     "verbose": true,
