@@ -58,9 +58,10 @@ class MyMoneroCoreBridgeEssentialsClass
 		return ret.retVal;
 	}
 
-	address_and_keys_from_seed(seed)  {
+	address_and_keys_from_seed(seed, network)  {
 		const args = {
 			seed_string: seed,
+			nettype_string: network,
 		}
 
 		const args_str = JSON.stringify(args)
