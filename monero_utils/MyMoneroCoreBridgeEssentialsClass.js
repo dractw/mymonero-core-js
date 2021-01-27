@@ -57,6 +57,80 @@ class MyMoneroCoreBridgeEssentialsClass
 		}
 		return ret.retVal;
 	}
+
+	address_and_keys_from_seed(seed)  {
+		const args = {
+			seed_string: seed,
+		}
+
+		const args_str = JSON.stringify(args)
+		const ret_string = this.Module.address_and_keys_from_seed(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret.retVal
+	}
+
+	generate_key_image(
+		tx_pub_key,
+		sec_viewKey_string,
+		pub_spendKey_string,
+		sec_spendKey_string,
+		out_index
+	) {
+		const args_str = JSON.stringify({
+			tx_pub_key ,
+			sec_viewKey_string,
+			pub_spendKey_string,
+			sec_spendKey_string,
+			out_index
+		})
+		const ret_string = this.Module.generate_key_image(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret
+
+	}
+
+	decode_address(address, network) {
+		const args = {
+			address,
+			nettype_string: network,
+		}
+
+		const args_str = JSON.stringify(args)
+		const ret_string = this.Module.decode_address(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret
+	}
+
+	estimate_fee(args) {
+		const args_str = JSON.stringify(args)
+
+		const ret_string = this.Module.estimate_fee(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret.retVal
+	}
+
+	prepare_transaction (args) {
+		const args_str = JSON.stringify(args)
+
+		const ret_string = this.Module.send_step1__prepare_params_for_get_decoys(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret
+	}
+
+	create_transaction (args) {
+		const args_str = JSON.stringify(args)
+
+		console.log(args)
+		const ret_string = this.Module.send_step2__try_create_transaction(args_str)
+		const ret = JSON.parse(ret_string)
+
+		return ret
+	}
 }
 //
 module.exports = MyMoneroCoreBridgeEssentialsClass
