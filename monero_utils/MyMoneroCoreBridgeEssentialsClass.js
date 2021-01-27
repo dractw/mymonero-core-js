@@ -68,7 +68,7 @@ class MyMoneroCoreBridgeEssentialsClass
 		const ret_string = this.Module.address_and_keys_from_seed(args_str)
 		const ret = JSON.parse(ret_string)
 
-		return ret.retVal
+		return ret
 	}
 
 	generate_key_image(
