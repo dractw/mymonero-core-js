@@ -125,8 +125,6 @@ class MyMoneroCoreBridgeEssentialsClass
 
 	create_transaction (args) {
 		const args_str = JSON.stringify(args)
-
-		console.log(args)
 		const ret_string = this.Module.send_step2__try_create_transaction(args_str)
 		const ret = JSON.parse(ret_string)
 
